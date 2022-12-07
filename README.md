@@ -5,3 +5,5 @@ Die Semesterarbeit wurde im Rahmen des Studiengangs Bachelor of Science in Wirts
 Vorgelegt von Petra Kaser, petrasimona.kaser@students.bfh.ch
 Eingereicht bei Dominic Schweizer
 Eingereicht am xx.xx.xxxx
+## Beteiligung
+Das Projekt ist eine Einzelarbeit und somit von externer Hilfe ausgeschlossen. Danke für die Kenntnisnahme.
