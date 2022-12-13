@@ -484,142 +484,150 @@ $.get(
 //         WebGL Hintergrund                                        //
 //////////////////////////////////////////////////////////////////////
 
-if (!THREE.Supports.webgl) THREE.Supports.addGetWebGLMessage();
+function snow() {
+  if (!THREE.Supports.webgl) THREE.Supports.addGetWebGLMessage();
 
-var container, stats;
-var camera,
-  scene,
-  renderer,
-  particles,
-  geometry,
-  materials = [],
-  parameters,
-  i,
-  h,
-  color,
-  sprite,
-  size;
-var mouseX = 0,
-  mouseY = 0;
+  var container, stats;
+  var camera,
+    scene,
+    renderer,
+    particles,
+    geometry,
+    materials = [],
+    parameters,
+    i,
+    h,
+    color,
+    sprite,
+    size;
+  var mouseX = 0,
+    mouseY = 0;
 
-var windowHalfX = window.innerWidth / 2;
-var windowHalfY = window.innerHeight / 2;
+  var windowHalfX = window.innerWidth / 2;
+  var windowHalfY = window.innerHeight / 2;
 
-init();
-setInterval(loop, 1000 / 60);
+  init();
+  setInterval(loop, 1000 / 60);
 
-function init() {
-  container = document.getElementById("snowflakes");
+  function init() {
+    container = document.getElementById("snowflakes");
 
-  camera = new THREE.Camera(
-    75,
-    window.innerWidth / window.innerHeight,
-    1,
-    3000
-  );
-  camera.position.z = 1000;
-
-  scene = new THREE.Scene();
-  scene.fog = new THREE.FogExp2(0x000000, 0.0008);
-
-  geometry = new THREE.Geometry();
-
-  sprite1 = ImageUtils.loadTexture("res/snowflake1.png");
-  sprite2 = ImageUtils.loadTexture("res/snowflake2.png");
-  sprite3 = ImageUtils.loadTexture("res/snowflake3.png");
-  sprite4 = ImageUtils.loadTexture("res/snowflake4.png");
-  sprite5 = ImageUtils.loadTexture("res/snowflake5.png");
-
-  for (i = 0; i < 2000; i++) {
-    vector = new THREE.Vector3(
-      Math.random() * 2000 - 1000,
-      Math.random() * 2000 - 1000,
-      Math.random() * 2000 - 1000
+    camera = new THREE.Camera(
+      75,
+      window.innerWidth / window.innerHeight,
+      1,
+      3000
     );
-    geometry.vertices.push(new THREE.Vertex(vector));
+    camera.position.z = 1000;
+
+    scene = new THREE.Scene();
+    scene.fog = new THREE.FogExp2(0x000000, 0.0008);
+
+    geometry = new THREE.Geometry();
+
+    sprite1 = ImageUtils.loadTexture("res/snowflake1.png");
+    sprite2 = ImageUtils.loadTexture("res/snowflake2.png");
+    sprite3 = ImageUtils.loadTexture("res/snowflake3.png");
+    sprite4 = ImageUtils.loadTexture("res/snowflake4.png");
+    sprite5 = ImageUtils.loadTexture("res/snowflake5.png");
+
+    for (i = 0; i < 2000; i++) {
+      vector = new THREE.Vector3(
+        Math.random() * 2000 - 1000,
+        Math.random() * 2000 - 1000,
+        Math.random() * 2000 - 1000
+      );
+      geometry.vertices.push(new THREE.Vertex(vector));
+    }
+
+    parameters = [
+      [[1.0, 0.2, 1.0], sprite2, 20],
+      [[0.95, 0.1, 1], sprite3, 15],
+      [[0.9, 0.05, 1], sprite1, 10],
+      [[0.85, 0, 0.8], sprite5, 8],
+      [[0.8, 0, 0.7], sprite4, 5],
+    ];
+
+    for (i = 0; i < parameters.length; i++) {
+      color = parameters[i][0];
+      sprite = parameters[i][1];
+      size = parameters[i][2];
+
+      materials[i] = new THREE.ParticleBasicMaterial({
+        size: size,
+        map: sprite,
+        blending: THREE.AdditiveBlending,
+        depth_test: false,
+      });
+      materials[i].color.setHSV(color[0], color[1], color[2]);
+
+      particles = new THREE.ParticleSystem(geometry, materials[i]);
+      particles.rotation.x = Math.random() * 6;
+      particles.rotation.y = Math.random() * 6;
+      particles.rotation.z = Math.random() * 6;
+      scene.addObject(particles);
+    }
+
+    renderer = new THREE.WebGLRenderer({ clearAlpha: 1 });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    container.appendChild(renderer.domElement);
+
+    document.addEventListener("mousemove", onDocumentMouseMove, false);
+    document.addEventListener("touchstart", onDocumentTouchStart, false);
+    document.addEventListener("touchmove", onDocumentTouchMove, false);
+    window.addEventListener("resize", onResize, false);
   }
 
-  parameters = [
-    [[1.0, 0.2, 1.0], sprite2, 20],
-    [[0.95, 0.1, 1], sprite3, 15],
-    [[0.9, 0.05, 1], sprite1, 10],
-    [[0.85, 0, 0.8], sprite5, 8],
-    [[0.8, 0, 0.7], sprite4, 5],
-  ];
-
-  for (i = 0; i < parameters.length; i++) {
-    color = parameters[i][0];
-    sprite = parameters[i][1];
-    size = parameters[i][2];
-
-    materials[i] = new THREE.ParticleBasicMaterial({
-      size: size,
-      map: sprite,
-      blending: THREE.AdditiveBlending,
-      depth_test: false,
-    });
-    materials[i].color.setHSV(color[0], color[1], color[2]);
-
-    particles = new THREE.ParticleSystem(geometry, materials[i]);
-    particles.rotation.x = Math.random() * 6;
-    particles.rotation.y = Math.random() * 6;
-    particles.rotation.z = Math.random() * 6;
-    scene.addObject(particles);
+  function onResize(event) {
+    location.reload();
   }
 
-  renderer = new THREE.WebGLRenderer({ clearAlpha: 1 });
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  container.appendChild(renderer.domElement);
+  function onDocumentMouseMove(event) {
+    mouseX = event.clientX - windowHalfX;
+    mouseY = event.clientY - windowHalfY;
+  }
 
-  document.addEventListener("mousemove", onDocumentMouseMove, false);
-  document.addEventListener("touchstart", onDocumentTouchStart, false);
-  document.addEventListener("touchmove", onDocumentTouchMove, false);
+  function onDocumentTouchStart(event) {
+    if (event.touches.length == 1) {
+      event.preventDefault();
+
+      mouseX = event.touches[0].pageX - windowHalfX;
+      mouseY = event.touches[0].pageY - windowHalfY;
+    }
+  }
+
+  function onDocumentTouchMove(event) {
+    if (event.touches.length == 1) {
+      event.preventDefault();
+
+      mouseX = event.touches[0].pageX - windowHalfX;
+      mouseY = event.touches[0].pageY - windowHalfY;
+    }
+  }
+
+  function loop() {
+    var time = new Date().getTime() * 0.00005;
+
+    camera.position.x += (mouseX - camera.position.x) * 0.05;
+    camera.position.y += (-mouseY - camera.position.y) * 0.05;
+
+    for (i = 0; i < scene.objects.length; i++) {
+      scene.objects[i].rotation.y = time * (i < 4 ? i + 1 : -(i + 1));
+    }
+
+    for (i = 0; i < materials.length; i++) {
+      color = parameters[i][0];
+
+      h = ((360 * (color[0] + time)) % 360) / 360;
+      materials[i].color.setHSV(h, color[1], color[2]);
+    }
+
+    renderer.render(scene, camera);
+
+    stats.update();
+  }
 }
-
-function onDocumentMouseMove(event) {
-  mouseX = event.clientX - windowHalfX;
-  mouseY = event.clientY - windowHalfY;
-}
-
-function onDocumentTouchStart(event) {
-  if (event.touches.length == 1) {
-    event.preventDefault();
-
-    mouseX = event.touches[0].pageX - windowHalfX;
-    mouseY = event.touches[0].pageY - windowHalfY;
-  }
-}
-
-function onDocumentTouchMove(event) {
-  if (event.touches.length == 1) {
-    event.preventDefault();
-
-    mouseX = event.touches[0].pageX - windowHalfX;
-    mouseY = event.touches[0].pageY - windowHalfY;
-  }
-}
-
-function loop() {
-  var time = new Date().getTime() * 0.00005;
-
-  camera.position.x += (mouseX - camera.position.x) * 0.05;
-  camera.position.y += (-mouseY - camera.position.y) * 0.05;
-
-  for (i = 0; i < scene.objects.length; i++) {
-    scene.objects[i].rotation.y = time * (i < 4 ? i + 1 : -(i + 1));
-  }
-
-  for (i = 0; i < materials.length; i++) {
-    color = parameters[i][0];
-
-    h = ((360 * (color[0] + time)) % 360) / 360;
-    materials[i].color.setHSV(h, color[1], color[2]);
-  }
-
-  renderer.render(scene, camera);
-
-  stats.update();
-}
+snow();
 
 //////////////////////////////////////////////////////////////////////
 //         Scroll                                                   //
