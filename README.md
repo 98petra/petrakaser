@@ -5,5 +5,5 @@ Die Semesterarbeit wurde im Rahmen des Studiengangs Bachelor of Science in Wirts
 Vorgelegt von Petra Kaser, petrasimona.kaser@students.bfh.ch.
 Eingereicht bei Dominic Schweizer
 Eingereicht am 21.12.2022
-### Beteiligung
-Da es sich um ein Teilkompetenznachweis handelt, sind keine Contributions aus der Community erwünscht. Besten Dank fürs Verständnis.
+## Beteiligung
+Da es sich um einen Teilkompetenznachweis handelt, sind keine Contributions aus der Community erwünscht. Besten Dank fürs Verständnis.
