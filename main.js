@@ -14,27 +14,15 @@ series.rotationThreshold = 0.5;
 
 series.data = [
   {
-    tag: "javascript",
+    tag: "python",
     count: "1765836",
-  },
-  {
-    tag: "java",
-    count: "1517355",
-  },
-  {
-    tag: "c#",
-    count: "1287629",
-  },
-  {
-    tag: "php",
-    count: "1263946",
   },
   {
     tag: "android",
     count: "1174721",
   },
   {
-    tag: "python",
+    tag: "javascript",
     count: "1116769",
   },
   {
@@ -44,10 +32,6 @@ series.data = [
   {
     tag: "html",
     count: "805679",
-  },
-  {
-    tag: "c++",
-    count: "606051",
   },
   {
     tag: "ios",
@@ -66,28 +50,12 @@ series.data = [
     count: "479892",
   },
   {
-    tag: "asp.net",
-    count: "343092",
-  },
-  {
-    tag: "ruby-on-rails",
+    tag: "angular",
     count: "303311",
   },
   {
-    tag: "c",
-    count: "296963",
-  },
-  {
-    tag: "arrays",
+    tag: "firebase",
     count: "288445",
-  },
-  {
-    tag: "objective-c",
-    count: "286823",
-  },
-  {
-    tag: ".net",
-    count: "280079",
   },
   {
     tag: "r",
@@ -110,24 +78,8 @@ series.data = [
     count: "253824",
   },
   {
-    tag: "swift",
-    count: "222387",
-  },
-  {
     tag: "iphone",
     count: "219827",
-  },
-  {
-    tag: "regex",
-    count: "203121",
-  },
-  {
-    tag: "ruby",
-    count: "202547",
-  },
-  {
-    tag: "ajax",
-    count: "196727",
   },
   {
     tag: "django",
@@ -142,7 +94,7 @@ series.data = [
     count: "180742",
   },
   {
-    tag: "asp.net-mvc",
+    tag: "powerpoint",
     count: "178291",
   },
   {
@@ -150,7 +102,7 @@ series.data = [
     count: "173278",
   },
   {
-    tag: "angular",
+    tag: "word",
     count: "154447",
   },
   {
@@ -158,12 +110,8 @@ series.data = [
     count: "153581",
   },
   {
-    tag: "wpf",
+    tag: "airtable",
     count: "147538",
-  },
-  {
-    tag: "spring",
-    count: "147456",
   },
   {
     tag: "wordpress",
@@ -174,18 +122,6 @@ series.data = [
     count: "145685",
   },
   {
-    tag: "vba",
-    count: "139940",
-  },
-  {
-    tag: "string",
-    count: "136649",
-  },
-  {
-    tag: "xcode",
-    count: "130591",
-  },
-  {
     tag: "windows",
     count: "127680",
   },
@@ -194,31 +130,19 @@ series.data = [
     count: "125021",
   },
   {
-    tag: "vb.net",
-    count: "122559",
-  },
-  {
     tag: "html5",
     count: "118810",
-  },
-  {
-    tag: "eclipse",
-    count: "115802",
-  },
-  {
-    tag: "multithreading",
-    count: "113719",
   },
   {
     tag: "mongodb",
     count: "110348",
   },
   {
-    tag: "laravel",
+    tag: "forms",
     count: "109340",
   },
   {
-    tag: "bash",
+    tag: "visio",
     count: "108797",
   },
   {
@@ -230,19 +154,15 @@ series.data = [
     count: "106936",
   },
   {
-    tag: "pandas",
+    tag: "jupyter",
     count: "96225",
-  },
-  {
-    tag: "postgresql",
-    count: "96027",
   },
   {
     tag: "twitter-bootstrap",
     count: "94348",
   },
   {
-    tag: "forms",
+    tag: "rpa",
     count: "92995",
   },
   {
@@ -262,10 +182,6 @@ series.data = [
     count: "88762",
   },
   {
-    tag: "scala",
-    count: "86971",
-  },
-  {
     tag: "visual-studio",
     count: "85825",
   },
@@ -278,7 +194,7 @@ series.data = [
     count: "83948",
   },
   {
-    tag: "winforms",
+    tag: "SAP",
     count: "83600",
   },
   {
@@ -298,24 +214,8 @@ series.data = [
     count: "81443",
   },
   {
-    tag: "css3",
-    count: "78250",
-  },
-  {
-    tag: "entity-framework",
-    count: "78243",
-  },
-  {
-    tag: "hibernate",
-    count: "76123",
-  },
-  {
     tag: "typescript",
     count: "74867",
-  },
-  {
-    tag: "linq",
-    count: "73128",
   },
   {
     tag: "swing",
@@ -324,10 +224,6 @@ series.data = [
   {
     tag: "function",
     count: "72043",
-  },
-  {
-    tag: "amazon-web-services",
-    count: "71155",
   },
   {
     tag: "qt",
@@ -346,7 +242,7 @@ series.data = [
     count: "67431",
   },
   {
-    tag: "firebase",
+    tag: "instagram",
     count: "66411",
   },
   {
@@ -354,16 +250,8 @@ series.data = [
     count: "66158",
   },
   {
-    tag: "maven",
-    count: "66113",
-  },
-  {
     tag: "powershell",
     count: "65467",
-  },
-  {
-    tag: ".htaccess",
-    count: "65014",
   },
   {
     tag: "sqlite",
@@ -374,24 +262,12 @@ series.data = [
     count: "62783",
   },
   {
-    tag: "codeigniter",
-    count: "62393",
-  },
-  {
     tag: "perl",
     count: "61752",
   },
   {
     tag: "loops",
     count: "61015",
-  },
-  {
-    tag: "symfony",
-    count: "60820",
-  },
-  {
-    tag: "selenium",
-    count: "59855",
   },
   {
     tag: "google-maps",
@@ -410,24 +286,12 @@ series.data = [
     count: "58916",
   },
   {
-    tag: "cordova",
-    count: "58195",
-  },
-  {
-    tag: "class",
-    count: "58055",
-  },
-  {
-    tag: "numpy",
+    tag: "safari",
     count: "57132",
   },
   {
     tag: "google-chrome",
     count: "56836",
-  },
-  {
-    tag: "ruby-on-rails-3",
-    count: "55962",
   },
   {
     tag: "android-studio",
