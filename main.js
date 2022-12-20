@@ -488,7 +488,7 @@ function snow() {
 
     renderer.render(scene, camera);
 
-    stats.update();
+    //#stats.update();
   }
 }
 snow();
